@@ -38,6 +38,11 @@ format=yuva420p, colorchannelmixer=aa=0.5[bottom]; \
 [top][bottom]overlay=shortest=1" \
 -vcodec libx264 finalvideo2.mp4
 
+# combine video with new audio
+ffmpeg -i first2.mp4 -i computerworld5.mp3 \
+-c:v copy -c:a aac -strict experimental \
+-map 0:v:0 -map 1:a:0 computerworld_video.mp4
+
 #Fade out the audio of my videos
 ffmpeg -i azusa_final.mp4 -af afade=t=in:st=0:d=3,afade=t=out:st=35:d=5 azusa_final_fade.mp4
 

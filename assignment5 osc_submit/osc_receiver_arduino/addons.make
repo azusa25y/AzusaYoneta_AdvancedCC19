@@ -1,0 +1,3 @@
+ofxBlur
+ofxBlurShader
+ofxOsc
